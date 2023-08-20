@@ -10,7 +10,9 @@ def even_game(user_name: str) -> None:
 
 
 def process_even_question() -> str:
-    number = randint(1, 100)
+    MIN_NUM = 1
+    MAX_NUM = 100
+    number = randint(MIN_NUM, MAX_NUM)
     print("Question:", number)
     result = 'yes' if number % 2 == 0 else 'no'
     return result

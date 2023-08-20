@@ -12,10 +12,10 @@ def calc_game(user_name: str) -> None:
 def process_calc_question() -> int:
     signs = ['+', '-', '*']
     sign = choice(signs)
-    min_num = 3
-    max_num = 10
-    a = randint(min_num, max_num)
-    b = randint(min_num, max_num)
+    MIN_NUM = 3
+    MAX_NUM = 10
+    a = randint(MIN_NUM, MAX_NUM)
+    b = randint(MIN_NUM, MAX_NUM)
     result = 0
     match sign:
         case '+':

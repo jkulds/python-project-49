@@ -10,9 +10,15 @@ def prime_game(user_name: str) -> None:
 
 
 def process_prime_question() -> str:
-    n = randint(6, 100)
+    MIN_NUM = 3
+    MAX_NUM = 10
+    n = randint(MIN_NUM, MAX_NUM)
 
-    is_prime_needed = randint(0, 10) > 4 and n > 30
+    LOW = 0
+    HIGH = 10
+    EDGE = 4
+    N_EDFE = 30
+    is_prime_needed = randint(LOW, HIGH) > EDGE and n > N_EDFE
     if is_prime_needed:
         while True:
             if is_prime(n):

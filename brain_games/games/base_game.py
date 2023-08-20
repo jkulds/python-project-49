@@ -16,10 +16,10 @@ def run_game(user_name: str,
 
 
 def run_game_loop(user_name, print_question_and_get_lap_result):
-    needed_correct_answers = 3
-    correct_answer_count = 0
+    NEEDED_CORRECT_ANSWERS = 3
+    CORRECT_ANSWER_COUNT = 0
 
-    while correct_answer_count < needed_correct_answers:
+    while CORRECT_ANSWER_COUNT < NEEDED_CORRECT_ANSWERS:
         result = str(print_question_and_get_lap_result())
 
         answer_message = "Your answer: "
@@ -28,12 +28,12 @@ def run_game_loop(user_name, print_question_and_get_lap_result):
 
         if answer == result:
             print("Correct!")
-            correct_answer_count += 1
+            CORRECT_ANSWER_COUNT += 1
         else:
             print(f"'{answer}' is wrong answer ;(."
                   f" Correct answer was '{result}'.")
             print(f"Let's try again, {user_name}!")
             break
 
-    if correct_answer_count == needed_correct_answers:
+    if CORRECT_ANSWER_COUNT == NEEDED_CORRECT_ANSWERS:
         print(f"Congratulations, {user_name}!")

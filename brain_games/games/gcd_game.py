@@ -18,10 +18,10 @@ def gcd(a, b):
 
 
 def process_gcd_question() -> int:
-    min_num = 1
-    max_num = 100
-    a = randint(min_num, max_num)
-    b = randint(min_num, max_num)
+    MIN_NUM = 1
+    MAX_NUM = 100
+    a = randint(MIN_NUM, MAX_NUM)
+    b = randint(MIN_NUM, MAX_NUM)
     result = gcd(a, b)
 
     print("Question:", a, b)

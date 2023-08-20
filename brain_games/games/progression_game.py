@@ -9,16 +9,16 @@ def progression_game(user_name: str) -> None:
 
 
 def process_progression_question() -> int:
-    progression_length = 10
-    windows_start = 3
-    min_num = 1
-    max_num = 5
-    progression_diff = randint(min_num, max_num)
-    start_num = randint(min_num, max_num)
-    result_index = randint(windows_start, progression_length - windows_start)
+    PROGRESSION_LENGTH = 10
+    WINDOWS_START = 3
+    MIN_NUM = 1
+    MAX_NUM = 5
+    progression_diff = randint(MIN_NUM, MAX_NUM)
+    start_num = randint(MIN_NUM, MAX_NUM)
+    result_index = randint(WINDOWS_START, PROGRESSION_LENGTH - WINDOWS_START)
     num_list = []
     result = 0
-    for i in range(progression_length):
+    for i in range(PROGRESSION_LENGTH):
         current = start_num + i * progression_diff
         if i == result_index:
             result = current
