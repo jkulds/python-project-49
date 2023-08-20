@@ -12,34 +12,34 @@ def welcome_user() -> str:
 def even_game(user_name: str) -> None:
     run_game(user_name,
              'Answer "yes" if the number is even, otherwise answer "no".',
-             print_even_game_question_and_get_result)
+             process_even_question)
 
 
 def calc_game(user_name: str) -> None:
     run_game(user_name,
              "What is the result of the expression?",
-             print_calc_game_question_and_get_result)
+             process_calc_question)
 
 
 def gcd_game(user_name: str) -> None:
     run_game(user_name,
              "Find the greatest common divisor of given numbers.",
-             print_gcd_game_question_and_get_result)
+             process_gcd_question)
 
 
 def progression_game(user_name: str) -> None:
     run_game(user_name,
              "What number is missing in the progression?",
-             print_progression_game_question_and_get_result)
+             process_progression_question)
 
 
 def prime_game(user_name: str) -> None:
     run_game(user_name,
              'Answer "yes" if given number is prime. Otherwise answer "no".',
-             print_prime_game_question_and_get_result)
+             process_prime_question)
 
 
-def print_prime_game_question_and_get_result() -> str:
+def process_prime_question() -> str:
     n = randint(6, 100)
 
     is_prime_needed = randint(0, 10) > 4 and n > 30
@@ -64,7 +64,7 @@ def is_prime(n: int) -> bool:
     return True
 
 
-def print_calc_game_question_and_get_result() -> int:
+def process_calc_question() -> int:
     signs = ['+', '-', '*']
     sign = choice(signs)
     min_num = 3
@@ -97,7 +97,7 @@ def is_answer_correct(answer, result, user_name) -> bool:
     return False
 
 
-def print_even_game_question_and_get_result() -> str:
+def process_even_question() -> str:
     number = randint(1, 100)
     print("Question:", number)
     result = 'yes' if number % 2 == 0 else 'no'
@@ -128,7 +128,7 @@ def gcd(a, b):
     return a
 
 
-def print_gcd_game_question_and_get_result() -> int:
+def process_gcd_question() -> int:
     min_num = 1
     max_num = 100
     a = randint(min_num, max_num)
@@ -140,7 +140,7 @@ def print_gcd_game_question_and_get_result() -> int:
     return result
 
 
-def print_progression_game_question_and_get_result() -> int:
+def process_progression_question() -> int:
     progression_length = 10
     windows_start = 3
     min_num = 1
