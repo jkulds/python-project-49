@@ -10,8 +10,8 @@ def prime_game(user_name: str) -> None:
 
 
 def process_prime_question() -> str:
-    MIN_NUM = 3
-    MAX_NUM = 10
+    MIN_NUM = 7
+    MAX_NUM = 100
     n = randint(MIN_NUM, MAX_NUM)
 
     LOW = 0
