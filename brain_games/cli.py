@@ -1,5 +1,6 @@
-import prompt
 from random import randint, choice
+
+import prompt
 
 
 def welcome_user() -> str:
@@ -15,15 +16,52 @@ def even_game(user_name: str) -> None:
 
 
 def calc_game(user_name: str) -> None:
-    run_game(user_name, "What is the result of the expression?", print_calc_game_question_and_get_result)
+    run_game(user_name,
+             "What is the result of the expression?",
+             print_calc_game_question_and_get_result)
 
 
 def gcd_game(user_name: str) -> None:
-    run_game(user_name, "Find the greatest common divisor of given numbers.", print_gcd_game_question_and_get_result)
+    run_game(user_name,
+             "Find the greatest common divisor of given numbers.",
+             print_gcd_game_question_and_get_result)
 
 
 def progression_game(user_name: str) -> None:
-    run_game(user_name, "What number is missing in the progression?", print_progression_game_question_and_get_result)
+    run_game(user_name,
+             "What number is missing in the progression?",
+             print_progression_game_question_and_get_result)
+
+
+def prime_game(user_name: str) -> None:
+    run_game(user_name,
+             'Answer "yes" if given number is prime. Otherwise answer "no".',
+             print_prime_game_question_and_get_result)
+
+
+def print_prime_game_question_and_get_result() -> str:
+    n = randint(6, 100)
+
+    is_prime_needed = randint(0, 10) > 4 and n > 30
+    if is_prime_needed:
+        while True:
+            if is_prime(n):
+                break
+            n -= 1
+
+    print("Question:", n)
+
+    return 'yes' if is_prime(n) else 'no'
+
+
+def is_prime(n: int) -> bool:
+    if n % 2 == 0:
+        return False
+    for i in range(3, n // 2, 2):
+        if n % i == 0:
+            return False
+
+    return True
 
 
 def print_calc_game_question_and_get_result() -> int:
