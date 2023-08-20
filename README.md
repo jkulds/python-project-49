@@ -5,6 +5,12 @@
 ## Brain Games
 Set of command line math puzzles
 
+
+## Install
+
+``pip install jkulds-brain-games``
+
+
 ### brain-even
 Check if given number is even
 
