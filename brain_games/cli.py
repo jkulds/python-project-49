@@ -9,39 +9,21 @@ def welcome_user() -> str:
 
 
 def even_game(user_name: str) -> None:
-    print('Answer "yes" if the number is even, otherwise answer "no".')
-    count = 3
-    i = 0
-    while i < count:
-        result = print_even_game_question_and_get_result()
-
-        answer = prompt.string("Your answer: ")
-
-        if is_answer_correct(answer, result, user_name):
-            i += 1
-        else:
-            i = 0
-
-    print_user_congratulations(user_name)
-
-
-def print_even_game_question_and_get_result():
-    number = randint(1, 100)
-    print("Question:", number)
-    result = 'yes' if number % 2 == 0 else 'no'
-    return result
+    run_game(user_name,
+             'Answer "yes" if the number is even, otherwise answer "no".',
+             print_even_game_question_and_get_result)
 
 
 def calc_game(user_name: str) -> None:
-    print('What is the result of the expression?')
-
-    run_3_loop_game(user_name, print_calc_game_question_and_get_result)
-
-    print_user_congratulations(user_name)
+    run_game(user_name, "What is the result of the expression?", print_calc_game_question_and_get_result)
 
 
-def print_user_congratulations(user_name: str) -> None:
-    print(f"Congratulations, {user_name}!")
+def gcd_game(user_name: str) -> None:
+    run_game(user_name, "Find the greatest common divisor of given numbers.", print_gcd_game_question_and_get_result)
+
+
+def progression_game(user_name: str) -> None:
+    run_game(user_name, "What number is missing in the progression?", print_progression_game_question_and_get_result)
 
 
 def print_calc_game_question_and_get_result() -> int:
@@ -77,21 +59,22 @@ def is_answer_correct(answer, result, user_name) -> bool:
     return False
 
 
-def gcd_game(user_name: str) -> None:
-    print('Find the greatest common divisor of given numbers.')
-
-    run_3_loop_game(user_name, print_gcd_game_question_and_get_result)
-
-    print_user_congratulations(user_name)
+def print_even_game_question_and_get_result() -> str:
+    number = randint(1, 100)
+    print("Question:", number)
+    result = 'yes' if number % 2 == 0 else 'no'
+    return result
 
 
 def run_3_loop_game(user_name, print_question_and_get_lap_result):
     count = 3
     i = 0
     while i < count:
-        result = print_question_and_get_lap_result()
+        result = str(print_question_and_get_lap_result())
 
-        answer = prompt.integer("Your answer: ")
+        answer_message = "Your answer: "
+
+        answer = prompt.string(answer_message)
 
         if is_answer_correct(answer, result, user_name):
             i += 1
@@ -117,3 +100,36 @@ def print_gcd_game_question_and_get_result() -> int:
     print("Question:", a, b)
 
     return result
+
+
+def print_progression_game_question_and_get_result() -> int:
+    progression_length = 10
+    windows_start = 3
+    min_num = 1
+    max_num = 5
+    progression_diff = randint(min_num, max_num)
+    start_num = randint(min_num, max_num)
+    result_index = randint(windows_start, progression_length - windows_start)
+    num_list = []
+    result = 0
+    for i in range(progression_length):
+        current = start_num + i * progression_diff
+        if i == result_index:
+            result = current
+            num_list.append('..')
+        else:
+            num_list.append(current)
+
+    print("Question:", " ".join(map(str, num_list)))
+
+    return result
+
+
+def run_game(user_name: str,
+             greet_message: str,
+             print_game_question_and_get_result: callable) -> None:
+    print(greet_message)
+
+    run_3_loop_game(user_name, print_game_question_and_get_result)
+
+    print(f"Congratulations, {user_name}!")
