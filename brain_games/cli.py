@@ -117,7 +117,7 @@ def run_3_loop_game(user_name, print_question_and_get_lap_result):
         else:
             print(f"'{answer}' is wrong answer ;(."
                   f" Correct answer was '{result}'.")
-            print(f"Let's try again, {user_name}")
+            print(f"Let's try again, {user_name}!")
             break
 
     if i == count:
