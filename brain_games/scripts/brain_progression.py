@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-from brain_games.cli import welcome_user, progression_game
+from brain_games.games.base_game import welcome_user
+from brain_games.games.progression_game import progression_game
 
 
 def main():
