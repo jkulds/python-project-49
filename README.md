@@ -4,3 +4,4 @@
 
 Brain-even game - https://asciinema.org/a/GXtTfdFCwYElScZCe842l6afl <br/>
 Brain-calc game - https://asciinema.org/a/MfyQuSqWadUN3b6MMUmY5jc3s <br/>
+Brain-gcd  game - https://asciinema.org/a/QZf2McpQ8vWA6iwK1U7t7Y3jX <br/>
