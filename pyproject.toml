@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "jkulds-brain-games"
+name = "hexlet-code"
 version = "0.1.3"
 description = "Простой набор головоломок"
 authors = ["jkulds <w84my5@yandex.ru>"]
