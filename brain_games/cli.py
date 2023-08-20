@@ -120,7 +120,7 @@ def run_3_loop_game(user_name, print_question_and_get_lap_result):
             print(f"Let's try again, {user_name}")
             break
 
-    if i == 2:
+    if i == count:
         print(f"Congratulations, {user_name}!")
 
 
