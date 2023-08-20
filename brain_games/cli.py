@@ -1,5 +1,5 @@
 import prompt
-
+from random import randint
 
 def welcome_user() -> str:
     user = prompt.string("May I have your name? ")
@@ -9,12 +9,13 @@ def welcome_user() -> str:
 
 def even_game(user_name: str) -> None:
     print('Answer "yes" if the number is even, otherwise answer "no".')
-    numbers_array = [15, 7, 6]
+    count = 3
     i = 0
-    while i < len(numbers_array):
-        print("Question:", numbers_array[i])
+    while i < count:
+        number = randint(1, 100)
+        print("Question:", number)
         answer = prompt.string("Your answer: ")
-        correct = 'yes' if numbers_array[i] % 2 == 0 else 'no'
+        correct = 'yes' if number % 2 == 0 else 'no'
 
         if answer == correct:
             print("Correct!")
