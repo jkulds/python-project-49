@@ -55,9 +55,9 @@ def process_prime_question() -> str:
 
 
 def is_prime(n: int) -> bool:
-    if n % 2 == 0:
+    if n % 2 == 0 or n % 3 == 0:
         return False
-    for i in range(3, n // 2, 2):
+    for i in range(3, n, 2):
         if n % i == 0:
             return False
 
@@ -85,14 +85,10 @@ def process_calc_question() -> int:
     return result
 
 
-def is_answer_correct(answer, result, user_name) -> bool:
+def is_answer_correct(answer, result) -> bool:
     if answer == result:
         print("Correct!")
         return True
-
-    print(f"'{answer}' is wrong answer ;(."
-          f" Correct answer was '{result}'.")
-    print(f"Let's try again {user_name}")
 
     return False
 
@@ -107,6 +103,7 @@ def process_even_question() -> str:
 def run_3_loop_game(user_name, print_question_and_get_lap_result):
     count = 3
     i = 0
+
     while i < count:
         result = str(print_question_and_get_lap_result())
 
@@ -114,10 +111,17 @@ def run_3_loop_game(user_name, print_question_and_get_lap_result):
 
         answer = prompt.string(answer_message)
 
-        if is_answer_correct(answer, result, user_name):
+        if answer == result:
+            print("Correct!")
             i += 1
         else:
-            i = 0
+            print(f"'{answer}' is wrong answer ;(."
+                  f" Correct answer was '{result}'.")
+            print(f"Let's try again, {user_name}")
+            break
+
+    if i == 2:
+        print(f"Congratulations, {user_name}!")
 
 
 def gcd(a, b):
@@ -169,5 +173,3 @@ def run_game(user_name: str,
     print(greet_message)
 
     run_3_loop_game(user_name, print_game_question_and_get_result)
-
-    print(f"Congratulations, {user_name}!")
